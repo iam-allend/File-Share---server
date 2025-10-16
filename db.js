@@ -3,8 +3,8 @@ const mysql = require('mysql2');
 
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: '', // ubah kalau kamu pakai password
+  user: 'dtip1888_file_share',
+  password: 'dtip1888_file_share', // ubah kalau kamu pakai password
   database: 'file_share'
 });
 
