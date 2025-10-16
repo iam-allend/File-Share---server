@@ -1,16 +1,19 @@
-// server/db.js
-const mysql = require('mysql2');
+const mysql = require("mysql2");
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'dtip1888_file_share',
-  password: 'dtip1888_file_share', // ubah kalau kamu pakai password
-  database: 'file_share'
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: 3306, // default MySQL port
 });
 
-db.connect(err => {
-  if (err) throw err;
-  console.log('MySQL Connected!');
+connection.connect((err) => {
+  if (err) {
+    console.error("Database connection failed:", err);
+  } else {
+    console.log("Database connected successfully");
+  }
 });
 
-module.exports = { db };
+module.exports = connection;
